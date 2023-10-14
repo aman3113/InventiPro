@@ -4,6 +4,8 @@ import { Navigate, Outlet } from "react-router-dom";
 import SideBar from "../components/SideBar";
 
 import { fetchUser } from "../utils/Thunks";
+import { fetchInventory } from "../redux/InventorySlice";
+import { fetchSales } from "../redux/SalesSlice";
 
 const LayoutPage = () => {
 	const isLoggedIn = useSelector((store) => store.auth.isLoggedIn);
@@ -11,6 +13,8 @@ const LayoutPage = () => {
 
 	useEffect(() => {
 		dispatch(fetchUser());
+		dispatch(fetchInventory());
+		dispatch(fetchSales());
 	}, []);
 
 	if (!isLoggedIn) {

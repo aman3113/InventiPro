@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Avatar } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
+import InventiLogo from "../images/Inventipro logo.png";
+import SmallLogo from "../images/SmallInventipro logo.png";
 import {
 	Drawer,
 	DrawerBody,
@@ -17,11 +19,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
 	const dispatch = useDispatch();
 	const { user, error, loading } = useSelector((store) => store.user);
-	const {
-		authToken,
-		loading: deleteLoading,
-		error: deleteError,
-	} = useSelector((store) => store.auth);
+	const { authToken, error: deleteError } = useSelector((store) => store.auth);
 
 	const isLoggedIn = useSelector((store) => store.auth.isLoggedIn);
 	const [openUserModal, setOpenUserModal] = useState(false);
@@ -63,11 +61,15 @@ const Header = () => {
 		<header className="h-[10vh] p-3 px-5 flex justify-between items-center">
 			<Link to="/" className="w-[80px] md:w-[200px] h-full">
 				<img
-					src={""}
+					src={InventiLogo}
 					alt="xneo logo"
 					className="w-full h-full hidden md:block"
 				/>
-				<img src={""} alt="xneo logo" className="w-full h-full md:hidden" />
+				<img
+					src={SmallLogo}
+					alt="xneo logo"
+					className="w-full h-full md:hidden"
+				/>
 			</Link>
 			{isLoggedIn ? (
 				<p className="hidden sm:block">

@@ -8,6 +8,9 @@ import LayoutPage from "./pages/LayoutPage";
 import { Provider } from "react-redux";
 import Store from "./redux/Store";
 import ErrorPage from "./pages/ErrorPage";
+import DashboardPage from "./pages/DashboardPage";
+import InventoryPage from "./pages/InventoryPage";
+import SalesPage from "./pages/SalesPage";
 
 function App() {
 	return (
@@ -19,7 +22,11 @@ function App() {
 						<Routes>
 							<Route path="/signup" element={<SignupPage />} />
 							<Route path="/login" element={<LoginPage />} />
-							<Route path="/" element={<LayoutPage />}></Route>
+							<Route path="/" element={<LayoutPage />}>
+								<Route index element={<DashboardPage />} />
+								<Route path="/inventory" element={<InventoryPage />} />
+								<Route path="/sales" element={<SalesPage />} />
+							</Route>
 							<Route path="*" element={<ErrorPage />} />
 						</Routes>
 					</BrowserRouter>

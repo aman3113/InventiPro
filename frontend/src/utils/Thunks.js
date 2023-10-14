@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from "./Axios";
-import { clearAuthToken } from "../redux/AuthSlice";
 
 // User actions
 
@@ -14,6 +13,7 @@ export const fetchUser = createAsyncThunk(
 				Authorization: authToken,
 			},
 		});
+		console.log(response.data);
 		return response.data;
 	}
 );

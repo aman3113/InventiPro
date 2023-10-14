@@ -12,7 +12,14 @@ const AuthSlice = createSlice({
 		loading: false,
 		error: null,
 	},
-	reducers: {},
+	reducers: {
+		clearAuthToken: (state) => {
+			state.isLoggedIn = false;
+			state.authToken = null;
+			// Remove the authToken from localStorage
+			localStorage.removeItem("inventiAuthToken");
+		},
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(signupUser.pending, (state) => {
@@ -65,5 +72,5 @@ const AuthSlice = createSlice({
 	},
 });
 
-export const { setAuthToken, clearAuthToken } = AuthSlice.actions;
+export const { clearAuthToken } = AuthSlice.actions;
 export default AuthSlice;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { IoFitnessOutline } from "react-icons/io5";
-import { GoGoal } from "react-icons/go";
 import { BiFoodMenu } from "react-icons/bi";
 import { BiLogOut } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
@@ -38,7 +37,7 @@ const SideBar = () => {
 				<span className="hidden md:block">Dashboard</span>
 			</NavLink>
 			<NavLink
-				to="/exercise"
+				to="/inventory"
 				className={({ isActive }) =>
 					`${
 						isActive && " text-pink-400 border-blue-800 md:border-l-8"
@@ -46,10 +45,10 @@ const SideBar = () => {
 				}
 			>
 				<IoFitnessOutline size={25} />
-				<span className="hidden md:block">Exercises</span>
+				<span className="hidden md:block">Inventory</span>
 			</NavLink>
 			<NavLink
-				to="/food"
+				to="/sales"
 				className={({ isActive }) =>
 					`${
 						isActive && " text-pink-400 border-blue-800 md:border-l-8"
@@ -57,9 +56,9 @@ const SideBar = () => {
 				}
 			>
 				<BiFoodMenu size={25} />
-				<span className="hidden md:block">Food</span>
+				<span className="hidden md:block">Sales</span>
 			</NavLink>
-			<NavLink
+			{/* <NavLink
 				to="/goal"
 				className={({ isActive }) =>
 					`${
@@ -69,7 +68,7 @@ const SideBar = () => {
 			>
 				<GoGoal size={25} />
 				<span className="hidden md:block">Goals</span>
-			</NavLink>
+			</NavLink> */}
 			<p
 				className="flex gap-2 items-center p-2  font-semibold pl-4 cursor-pointer"
 				onClick={() => setOpenModal(true)}

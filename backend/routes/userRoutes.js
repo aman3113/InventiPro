@@ -8,10 +8,9 @@ userRouter.get("/", async (req, res) => {
 	try {
 		const user = await User.findById(req.userId);
 		res.json({
-			firstName: user.firstName,
-			lastName: user.lastName,
+			firstName: user?.firstName,
+			lastName: user?.lastName,
 			profilePicture: user.profilePicture,
-			bodyWeight: user.bodyWeight,
 			email: user.email,
 		});
 	} catch (error) {
