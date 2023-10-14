@@ -19,8 +19,8 @@ authRouter.post("/signup", async (req, res) => {
 		});
 	} catch (error) {
 		res.status(500).json({
-			message: "Failed to create user",
-			error: error.message,
+			error: "Failed to create user",
+			message: error.message,
 		});
 	}
 });
@@ -39,8 +39,8 @@ authRouter.post("/login", async (req, res) => {
 		});
 	} catch (error) {
 		res.status(500).json({
-			message: "Internal Server Error",
-			error: error.message,
+			error: "Internal Server Error",
+			message: error.message,
 		});
 	}
 });

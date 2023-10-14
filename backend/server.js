@@ -9,6 +9,8 @@ const cors = require("cors");
 
 const authRouter = require("./routes/authRoutes");
 const itemRouter = require("./routes/inventoryRoutes");
+const salesRouter = require("./routes/salesRoutes");
+const userRouter = require("./routes/userRoutes");
 const requiresAuth = require("./middlewares/requiresAuth");
 
 const app = express();
@@ -21,6 +23,8 @@ app.use(express.json());
 //Routers
 app.use("/v1/auth", authRouter);
 app.use("/v1/item", requiresAuth, itemRouter);
+app.use("/v1/sales", requiresAuth, salesRouter);
+app.use("/v1/user", requiresAuth, userRouter);
 
 app.get("/", (req, res) => {
 	res.send("Hello this is a Inventri Pro API by Aman.");
